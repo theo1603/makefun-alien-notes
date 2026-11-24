@@ -21,6 +21,12 @@ ENTRY = (
 )
 
 
+if not 1 <= len(ENTRY) <= 200 or not ENTRY.strip():
+    raise ValueError(
+        f"entry must be 1-200 non-blank characters, got {len(ENTRY)}"
+    )
+
+
 def main() -> None:
     out_path = "/output/entry.txt"
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
